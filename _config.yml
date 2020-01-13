@@ -1,24 +1,19 @@
-name: Jekyll Bulma
-description: "Jekyll Bulma Theme, Bulma.io CSS Framework Jekyll Template for Developers"
-url: http://erayaydin.github.io
-download: "https://github.com/erayaydin/jekyll-bulma/archive/master.zip"
+name: アジャイルラジオ
+description: "アジャイルラジオは、アジャイル開発に関するありとあらゆる情報を取り上げる番組です。毎回、アジャイルにまつわる様々なテーマを掘り下げ、できる限り語り尽くします。"
+url: http://agileradio.github.io
 social:
+  email: agileradio@example.com
   github: erayaydin
-  email: aydineray@mail.com
   facebook:
   twitter: erayaydi
-  instagram:
-  tumblr:
 author:
-  name: Eray AYDIN
-  bio: "Senior PHP Developer and Linux System Administrator, Free Software Fan, Archy (On Way Trust User), Junior Game Developer"
-  email: aydineray@mail.com
-  image: /assets/images/author.jpg
+  name: AgileRadio
+  bio: "アジャイルラジオは、スクラム道関西の協力でお送りしています。"
+  email: agileradio@example.com
+  image: http://agileradio.github.io/assets/img/agileradio_banner_1400x1400.jpg
   github: erayaydin
   facebook: erayaydi
   twitter: erayaydi
-  instagram:
-  tumblr:
   show_on_post: true
 permalink: /:categories/:title/
 sass:
@@ -29,8 +24,8 @@ markdown: kramdown
 
 plugins:
   - jekyll-paginate
-  - jekyll-feed
   - jekyll-gist
+#  - jekyll-feed
 
 exclude:
   - Gemfile
@@ -39,3 +34,4 @@ exclude:
   - LICENSE
   - CNAME
   - vendor
+  - .idea
