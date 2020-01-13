@@ -1,0 +1,23 @@
+{
+  "name": "jekyll-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run serve & browser-sync start -s '_site' -if '*.css, *.js, *.html'",
+    "build": "bundle exec jekyll build",
+    "clean": "bundle exec jekyll clean",
+    "serve": "bundle exec jekyll serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matsuoshi/matsuoshi.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matsuoshi/matsuoshi.github.io/issues"
+  },
+  "homepage": "https://github.com/matsuoshi/matsuoshi.github.io#readme"
+}

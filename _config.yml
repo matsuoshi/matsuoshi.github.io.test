@@ -15,11 +15,11 @@ author:
   facebook: erayaydi
   twitter: erayaydi
   show_on_post: true
-permalink: /:categories/:title/
+permalink: /:year/:month/:day/:title/
 sass:
   style: compressed
 paginate: 5
-paginate_path: "/:num/"
+paginate_path: "/page/:num/"
 markdown: kramdown
 
 plugins:
@@ -31,7 +31,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
-  - LICENSE
   - CNAME
   - vendor
   - .idea
+  - package.json
