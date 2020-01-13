@@ -1,19 +1,19 @@
 name: アジャイルラジオ
 description: "アジャイルラジオは、アジャイル開発に関するありとあらゆる情報を取り上げる番組です。毎回、アジャイルにまつわる様々なテーマを掘り下げ、できる限り語り尽くします。"
-url: http://agileradio.github.io
+url: https://agileradio.github.io
 social:
   email: agileradio@example.com
-  github: erayaydin
-  facebook:
-  twitter: erayaydi
+  github: agileradio
+  facebook: AgileRadio
+  twitter: agileradio15
 author:
   name: AgileRadio
   bio: "アジャイルラジオは、スクラム道関西の協力でお送りしています。"
   email: agileradio@example.com
-  image: http://agileradio.github.io/assets/img/agileradio_banner_1400x1400.jpg
-  github: erayaydin
-  facebook: erayaydi
-  twitter: erayaydi
+  image: https://agileradio.github.io/assets/img/agileradio_banner_1400x1400.jpg
+  github: agileradio
+  facebook: AgileRadio
+  twitter: agileradio15
   show_on_post: true
 permalink: /:year/:month/:day/:title/
 sass:
