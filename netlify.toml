@@ -1,5 +1,5 @@
 [context.production]
-  command = "jekyll build; echo '/* https://agileradio.github.io' > _site/_redirects"
+  command = "jekyll build; echo '* https://agileradio.github.io' > ./_site/_redirects"
 
 [context.deploy-preview]
   command = "jekyll build"
