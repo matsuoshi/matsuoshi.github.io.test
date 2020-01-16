@@ -27,6 +27,9 @@ plugins:
   - jekyll-gist
 #  - jekyll-feed
 
+include:
+  - _redirects
+
 exclude:
   - Gemfile
   - Gemfile.lock
