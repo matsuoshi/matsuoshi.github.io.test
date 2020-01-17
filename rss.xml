@@ -33,7 +33,11 @@ layout: plain
       <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
       <category>Radio</category>
       {% if post.audio %}
-      <enclosure url="http://agileradio-assets1.s3-website-us-west-1.amazonaws.com/mp3/ar_100.mp3" length="14215773" type="audio/mpeg"/>
+      <enclosure url="https://drive.google.com/uc?id={{ post.audio }}"
+        {% if post.audio_size %}
+                 length="{{ post.audio_size }}"
+        {% endif %}
+                 type="audio/mpeg"/>
       {% endif %}
     </item>
     {% endfor %}
