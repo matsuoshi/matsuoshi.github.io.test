@@ -1,221 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.name }}{% endif %}</title>
-    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-    <link rel="icon" href="{{ "/assets/images/favicon.png" | prepend: site.baseurl }}">
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
-    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/rss.xml" | absolute_url }}" />
-
-    <link rel="stylesheet" href="{{ "/assets/css/application.css" | prepend: site.baseurl }}" />
-    <link rel="stylesheet" href="{{ "/assets/css/prism.css" | prepend: site.baseurl }}" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.name }}</title>
+  <meta name="description"
+        content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <link rel="icon" href="{{ '/favicon.ico' | prepend: site.baseurl }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"/>
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/rss.xml' | absolute_url }}"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
 </head>
 <body>
-  <div class="container">
-    <nav class="navbar">
-      <div class="navbar-brand">
-        <a href="{{ "/" | prepend: site.baseurl }}" class="navbar-item">
+<div class="container">
+  <nav class="navbar is-fixed-top is-expanded is-light has-shadow is-spaced">
+    <div class="navbar-brand has-text-weight-bold">
+      <a class="navbar-item" href="{{ '/' | prepend: site.baseurl }}">
+        <img src="/assets/img/avatar.png" alt="logo">
         {{ site.name }}
-        </a>
-        {% if site.social.github %}
-        <a href="https://github.com/{{ site.social.github }}" class="navbar-item is-hidden-desktop">
-        <span class="icon">
-            <i class="fa fa-github"></i>
-        </span>
-        </a>
-        {% endif %}
-        {% if site.social.email %}
-        <a href="mailto:{{ site.social.email }}" class="navbar-item is-hidden-desktop">
-        <span class="icon">
-            <i class="fa fa-envelope-o"></i>
-        </span>
-        </a>
-        {% endif %}
-        {% if site.social.facebook %}
-        <a href="https://facebook.com/{{ site.social.facebook }}" class="navbar-item is-hidden-desktop">
-        <span class="icon">
-            <i class="fa fa-facebook"></i>
-        </span>
-        </a>
-        {% endif %}
-        {% if site.social.twitter %}
-        <a href="https://twitter.com/{{ site.social.twitter }}" class="navbar-item is-hidden-desktop">
-        <span class="icon">
-            <i class="fa fa-twitter"></i>
-        </span>
-        </a>
-        {% endif %}
-        {% if site.social.instagram %}
-        <a href="https://instagram.com/{{ site.social.instagram }}" class="navbar-item is-hidden-desktop">
-        <span class="icon">
-            <i class="fa fa-instagram"></i>
-        </span>
-        </a>
-        {% endif %}
-        {% if site.social.tumblr %}
-        <a href="https://{{ site.social.tumblr }}.tumblr.com" class="navbar-item is-hidden-desktop">
-        <span class="icon">
-            <i class="fa fa-tumblr"></i>
-        </span>
-        </a>
-        {% endif %}
-        <div class="navbar-burger burger" data-target="navMenubd-main">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+      </a>
+      <div class="navbar-burger burger" data-target="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-      <div id="navMenubd-main" class="navbar-menu">
-        <div class="navbar-start">
-          <a href="{{ "/" | prepend: site.baseurl }}" class="navbar-item {% if page.url == "/" %} is-active {% endif %}">
-          Blog
+    </div>
+
+    <div class="navbar-menu" id="navMenu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="https://twitter.com/agileradio15">
+          <span class="icon"><i class="fab fa-twitter"></i></span> Twitter
+        </a>
+        <a class="navbar-item" href="https://facebook.com/AgileRadio">
+          <span class="icon"><i class="fab fa-facebook"></i></span> Facebook
+        </a>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            スクラム道関西
           </a>
-          <a href="{{ "/categories" | prepend: site.baseurl }}" class="navbar-item {% if page.url == "/categories/" %} is-active {% endif %}">
-          Kategoriler
-          </a>
-        </div>
-        <div class="navbar-end">
-          {% if site.social.github %}
-          <a href="https://github.com/{{ site.social.github }}" class="navbar-item is-hidden-desktop-only">
-          <span class="icon">
-              <i class="fa fa-github"></i>
-          </span>
-          </a>
-          {% endif %}
-          {% if site.social.email %}
-          <a href="mailto:{{ site.social.email }}" class="navbar-item is-hidden-desktop-only">
-          <span class="icon">
-              <i class="fa fa-envelope-o"></i>
-          </span>
-          </a>
-          {% endif %}
-          {% if site.social.facebook %}
-          <a href="https://facebook.com/{{ site.social.facebook }}" class="navbar-item is-hidden-desktop-only">
-          <span class="icon">
-              <i class="fa fa-facebook"></i>
-          </span>
-          </a>
-          {% endif %}
-          {% if site.social.twitter %}
-          <a href="https://twitter.com/{{ site.social.twitter }}" class="navbar-item is-hidden-desktop-only">
-          <span class="icon">
-              <i class="fa fa-twitter"></i>
-          </span>
-          </a>
-          {% endif %}
-          {% if site.social.instagram %}
-          <a href="https://instagram.com/{{ site.social.instagram }}" class="navbar-item is-hidden-desktop-only">
-          <span class="icon">
-              <i class="fa fa-instagram"></i>
-          </span>
-          </a>
-          {% endif %}
-          {% if site.social.tumblr %}
-          <a href="https://{{ site.social.tumblr }}.tumblr.com" class="navbar-item is-hidden-desktop-only">
-          <span class="icon">
-              <i class="fa fa-tumblr"></i>
-          </span>
-          </a>
-          {% endif %}
-          <div class="navbar-item">
-            <div class="field is-grouped">
-              <p class="control">
-                <a class="bd-tw-button button"
-                  data-social-network="Twitter"
-                  data-social-action="tweet"
-                  data-social-target="https://twitter.com/{{ site.social.twitter }}"
-                  target="_blank"
-                  href="https://twitter.com/intent/tweet?text=Jekyll Bulma—Jekyll theme based on modern CSS framework based on Flexbox&hashtags=bulmaio&url={{site.url}}{{site.baseurl}}&via={{ site.social.twitter }}">
-                  <span class="icon">
-                    <i class="fa fa-twitter"></i>
-                  </span>
-                  <span>
-                    Tweet
-                  </span>
-                </a>
-              </p>
-              <p class="control">
-                <a class="button is-primary" href="{{ site.download }}">
-                  <span class="icon">
-                    <i class="fa fa-download"></i>
-                  </span>
-                  <span>Download</span>
-                </a>
-              </p>
-            </div>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://scrumdo-kansai.connpass.com/">
+              Connpass
+            </a>
+            <a class="navbar-item" href="https://facebook.com/ScrumDoKansai/">
+              Facebook
+            </a>
           </div>
         </div>
       </div>
-
-    </nav>
-  </div>
-
-{{ content }}
-<footer class="footer">
-    <div class="container">
-        <div class="content has-text-centered">
-            <p>
-                Theme: <strong><a href="https://github.com/erayaydin/jekyll-bulma">Jekyll Bulma</a></strong> by <a href="http://github.com/erayaydin">Eray Aydın</a>. The source code is licensed
-                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-                is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
-            </p>
-            <p>
-                {% if site.social.github %}
-                <a class="icon" href="https://github.com/{{ site.social.github }}">
-                    <i class="fa fa-github"></i>
-                </a>
-                {% endif %}
-                {% if site.social.email %}
-                <a class="icon" href="mailto:{{ site.social.email }}">
-                    <i class="fa fa-envelope-o"></i>
-                </a>
-                {% endif %}
-                {% if site.social.facebook %}
-                <a class="icon" href="https://facebook.com/{{ site.social.facebook }}">
-                    <i class="fa fa-facebook"></i>
-                </a>
-                {% endif %}
-                {% if site.social.twitter %}
-                <a class="icon" href="https://twitter.com/{{ site.social.twitter }}">
-                    <i class="fa fa-twitter"></i>
-                </a>
-                {% endif %}
-                {% if site.social.instagram %}
-                <a class="icon" href="https://instagram.com/{{ site.social.instagram }}">
-                    <i class="fa fa-instagram"></i>
-                </a>
-                {% endif %}
-                {% if site.social.tumblr %}
-                <a class="icon" href="https://{{ site.social.tumblr }}.tumblr.com">
-                    <i class="fa fa-tumblr"></i>
-                </a>
-                {% endif %}
-            </p>
-        </div>
     </div>
+  </nav>
+</div>
+
+<main>
+  {{ content }}
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>&copy; agileradio</p>
+      <p><small>
+        アジャイルラジオは、<a href="https://scrumdo-kansai.connpass.com/">スクラム道関西</a>の協力でお送りしています。
+      </small></p>
+    </div>
+  </div>
 </footer>
-<script src="{{ "/assets/js/main.js" | prepend: site.baseurl }}"></script>
-<script src="{{ site.baseurl }}{{ "/assets/js/jquery-3.1.1.min.js" | prepend: site.baseurl }}"></script>
-<script src="{{ "/assets/js/prism.js" | prepend: site.baseurl }}"></script>
+
 <script>
-    $('.nav-toggle').bind('click', function(){
-        var menus = $(this).siblings(".nav-menu");
-        if(menus.hasClass('is-active')){
-            menus.removeClass('is-active');
-        } else {
-            menus.addClass('is-active');
-        }
-    });
-</script>
-<script>
-(function() {
-    var d = document, s = d.createElement('script');
-    s.src = '//aydineray.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-})();
+  document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    if ($navbarBurgers.length > 0) {
+      $navbarBurgers.forEach(el => {
+        el.addEventListener('click', () => {
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+        });
+      });
+    }
+  });
 </script>
 </body>
 </html>

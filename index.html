@@ -3,54 +3,39 @@ layout: default
 ---
 <section class="hero is-primary">
   <div class="hero-body">
-    <div class="container is-fluid">
-      <h1 class="title">
+    <div class="container">
+      <h1 class="title is-spaced">
         {{ site.name }}
       </h1>
-      <h2 class="subtitle">
+      <h2 class="subtitle is-6">
         {{ site.description }}
       </h2>
     </div>
   </div>
 </section>
 <section class="section">
-  <div class="container is-fluid">
+  <div class="container">
     {% for post in paginator.posts %}
+      <div class="card">
+        <a href="{{ site.baseurl }}{{ post.url }}">
+          <div class="card-content">
 
-    <div class="card post-card">
-      {% if post.thumbnail %}
-      <div class="card-image">
-        <figure class="image">
-          <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">
-            <img src="{{ post.thumbnail | prepend: site.baseurl }}" alt="{{ post.title }}">
-          </a>
-        </figure>
-      </div>
-      {% endif %}
+            {% if post.episode %}
+            <p class="subtitle is-6"><small>Episode {{ post.episode }}</small></p>
+            {% endif %}
+            <p class="title is-4">{{ post.title }}</p>
 
-      <div class="card-content">
-        {% if post.episode %}
-        <p>Episode {{ post.episode }}</p>
-        {% endif %}
-        <h2 class="post-title"><a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </h2>
-        <p class="post-categories">
-          {% for category in post.categories %}
-          <a href="/{{ category | prepend: site.baseurl }}"
-             class="tag {% if site.data.category[category].color %} is-{{ site.data.category[category].color }} {% endif %}">{{
-            category }}</a>
-          {% endfor %}
-        </p>
-        <p>
-          {{ post.excerpt }}
-        </p>
-        <p>
-          <date>{{ post.date | date: "%Y.%m.%d" }}</date>
-        </p>
+            <div class="content">
+              {{ post.excerpt | strip_html }}
+              <div class="has-text-right is-size-7">
+                <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
-    </div>
-    <br>
     {% endfor %}
+
     <nav class="pagination is-centered">
       <a {% if paginator.previous_page %}href="..{{  paginator.previous_page_path }}" {% endif %}
          class="pagination-previous {% if paginator.previous_page %}{% else %} is-disabled {% endif %}">Önceki

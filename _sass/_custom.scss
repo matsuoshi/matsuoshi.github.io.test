@@ -1,0 +1,47 @@
+/*
+ * navbar
+ */
+.navbar {
+  &.is-spaced {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .icon:only-child {
+    margin-right: .25rem;
+  }
+}
+
+
+/*
+ * main
+ */
+main {
+  padding-top: 3.25rem;
+
+  .hero {
+    &.is-primary {
+      background-color: $color-primary;
+    }
+
+    .subtitle {
+      margin-top: .25rem;
+    }
+  }
+
+  .card {
+    .title {
+      color: $color-primary;
+    }
+
+    a {
+      color: $color-text;
+
+      &:hover {
+        .card-content {
+          background-color: #f8f8f8;
+        }
+      }
+    }
+  }
+}
