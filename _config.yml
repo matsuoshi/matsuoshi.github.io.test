@@ -4,7 +4,7 @@ url: https://agileradio.github.io
 permalink: /:year/:month/:day/:title/
 sass:
   style: compressed
-paginate: 5
+paginate: 10
 paginate_path: "/page/:num/"
 markdown: kramdown
 
