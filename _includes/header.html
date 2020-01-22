@@ -1,0 +1,56 @@
+<header class="container">
+  <nav class="navbar is-fixed-top is-expanded is-light has-shadow is-spaced">
+    <div class="navbar-brand has-text-weight-bold">
+      <a class="navbar-item" href="{{ '/' | prepend: site.baseurl }}">
+        <img src="/assets/img/avatar.png" alt="logo">
+        {{ site.name }}
+      </a>
+      <div class="navbar-burger burger" data-target="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu" id="navMenu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="https://twitter.com/agileradio15">
+          <span class="icon"><i class="fab fa-twitter"></i></span> Twitter
+        </a>
+        <a class="navbar-item" href="https://facebook.com/AgileRadio">
+          <span class="icon"><i class="fab fa-facebook"></i></span> Facebook
+        </a>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            スクラム道関西
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://scrumdo-kansai.connpass.com/">
+              Connpass
+            </a>
+            <a class="navbar-item" href="https://facebook.com/ScrumDoKansai/">
+              Facebook
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+      if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(el => {
+          el.addEventListener('click', () => {
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+          });
+        });
+      }
+    });
+  </script>
+</header>
