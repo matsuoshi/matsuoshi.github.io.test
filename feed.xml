@@ -10,13 +10,13 @@ layout: plain
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <itunes:subtitle>{{ site.description }}</itunes:subtitle>
-    <itunes:author>AgileRadio</itunes:author>
+    <itunes:author>{{ site.author.name }}</itunes:author>
     <itunes:summary>{{ site.description }}</itunes:summary>
     <itunes:owner>
       <itunes:name>{{ site.author.name }}</itunes:name>
       <itunes:email>{{ site.author.email }}</itunes:email>
     </itunes:owner>
-    <itunes:image href="{{ site.author.image }}"/>
+    <itunes:image href="{{ site.author.image | absolute_url }}"/>
     <itunes:category text="Technology" />
 
     {% assign posts = site.posts | where_exp: "post", "post.draft != true" | sort: "date" | reverse %}
