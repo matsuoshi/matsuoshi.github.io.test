@@ -1,0 +1,25 @@
+{% assign title = site.name %}
+{% if page.title %}{% assign title = page.title | append: ' | ' | append: title %}{% endif %}
+{% assign description = site.description %}
+{% if page.excerpt %}{% assign description = page.excerpt | strip_html | strip_newlines | truncate: 160 %}{% endif %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description}}">
+  <meta property="og:site_name" content="{{ site.name }}"/>
+  <meta property="og:type" content="{% if page.title %}article{% else %}website{% endif %}"/>
+  <meta property="og:title" content="{{ title }}"/>
+  <meta property="og:description" content="{{ description }}"/>
+  <meta property="og:image" content="{{ '/assets/img/agileradio.jpg' | prepend: site.baseurl }}"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@agileradio15"/>
+  <meta content="#f07010" name="theme-color"/>
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"/>
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | absolute_url }}"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <link rel="shortcut icon" href="{{ '/favicon.ico' | prepend: site.baseurl }}"/>
+  <link rel="apple-touch-icon" href="{{ '/assets/img/agileradio.jpg' | prepend: site.baseurl }}"/>
+</head>
