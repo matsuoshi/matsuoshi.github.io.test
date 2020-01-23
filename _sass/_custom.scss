@@ -18,6 +18,7 @@
  */
 main {
   padding-top: 3.25rem;
+  min-height: calc(100vh - 16rem);
 
   .hero {
     &.is-primary {

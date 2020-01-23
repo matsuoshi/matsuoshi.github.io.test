@@ -17,7 +17,10 @@ layout: plain
       <itunes:email>{{ site.author.email }}</itunes:email>
     </itunes:owner>
     <itunes:image href="{{ site.author.image | absolute_url }}"/>
-    <itunes:category text="Technology" />
+    <itunes:category text="Technology">
+      <itunes:category text="Software"/>
+      <itunes:category text="Agile"/>
+    </itunes:category>
 
     {% assign posts = site.posts | where_exp: "post", "post.draft != true" | sort: "date" | reverse %}
     {% for post in posts limit: 100 %}
