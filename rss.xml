@@ -30,12 +30,15 @@ layout: plain
       <link>{{ post.url | absolute_url }}</link>
       <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
       <category>Radio</category>
-      {% if post.audio %}
-      <enclosure url="https://drive.google.com/uc?id={{ post.audio }}"
-        {% if post.audio_size %}
-                 length="{{ post.audio_size }}"
-        {% endif %}
-                 type="audio/mpeg"/>
+      {% assign mp3url = null %}
+      {% if post.mp3id %}
+        {% assign mp3url = "https://drive.google.com/uc?id=" | append: post.mp3id %}
+      {% endif %}
+      {% if post.mp3file %}
+        {% assign mp3url = "http://agileradio-assets1.s3-website-us-west-1.amazonaws.com/mp3/" | append: post.mp3file %}
+      {% endif %}
+      {% if mp3url %}
+        <enclosure url="{{ mp3url }}" type="audio/mpeg" {% if post.mp3size %}length="{{ post.mp3size }}"{% endif %}/>
       {% endif %}
     </item>
     {% endfor %}
