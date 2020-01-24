@@ -27,6 +27,7 @@ layout: plain
     <item>
       <title>{{ post.title }}</title>
       <description><![CDATA[
+{% if post.episode %}<p>Episode {{ post.episode }}:</p>{% endif %}
 {{ post.content }}
       ]]></description>
       <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>

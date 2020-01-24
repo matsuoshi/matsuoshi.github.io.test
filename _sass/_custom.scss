@@ -40,7 +40,7 @@ main {
   }
 
   .card {
-    .title {
+    .title, .subtitle {
       color: $color-primary;
     }
 
@@ -68,4 +68,3 @@ main {
     }
   }
 }
-
