@@ -11,7 +11,7 @@
   <meta property="og:type" content="{% if page.title %}article{% else %}website{% endif %}"/>
   <meta property="og:title" content="{{ title }}"/>
   <meta property="og:description" content="{{ description }}"/>
-  <meta property="og:image" content="{{ site.author.image | prepend: site.baseurl }}"/>
+  <meta property="og:image" content="{{ site.author.image | absolute_url }}"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:site" content="@{{ site.author.twitter }}"/>
   <meta content="#f07010" name="theme-color"/>
