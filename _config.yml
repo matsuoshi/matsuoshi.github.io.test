@@ -12,10 +12,11 @@ sass:
   style: compressed
 paginate: 10
 paginate_path: "/page/:num/"
-markdown: redcarpet
-redcarpet:
-  extensions: ["strikethrough", "tables", "fenced_code_blocks", "autolink"]
- 
+markdown: kramdown
+kramdown:
+   input: GFM
+   hard_wrap: false
+
 plugins:
   - jekyll-paginate
   - jekyll-gist
