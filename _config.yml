@@ -13,8 +13,6 @@ sass:
 paginate: 10
 paginate_path: "/page/:num/"
 markdown: kramdown
-kramdown:
-  input: GFM
 
 plugins:
   - jekyll-paginate
